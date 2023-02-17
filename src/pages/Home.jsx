@@ -3,18 +3,6 @@ import PokemonCard from "../components/PokemonCard"
 import '../App.css'
 
 export default function Home() {
-    
-    // incrementing the offset by +10 everytime we go to next page
-    // de-crementing the offset by -10 everytime we go back
-        // then storing that new value to the pokemons state
-            // then rendering the pokemons in the pokemon state
-
-    /* 
-        TO DOS:
-    1. make it so that when guy clicks on the pokemon, a new page will appear (routing) (DONE)
-        - that page will be of the pokemon's details (DONE)
-    2. make it prettier with css animations (NOT DONE)
-    */
 
     const [pokemonSearch, setPokemonSearch] = useState('')
     const [currentPage, setCurrentPage] = useState(0)

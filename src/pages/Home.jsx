@@ -70,10 +70,12 @@ export default function Home() {
 
             <div className="buttonContainer">
                 <div className="button">
-                    {currentPage !== 0 && <button onClick={() => {
+                    {currentPage !== 0 && 
+                    
+                    <button onClick={() => {
                         setCurrentPage(prevState => prevState - 20)
                         window.scrollTo(0, 0)
-                        }}>Previous</button>}
+                    }}>Previous</button>}
                 </div>
                 <div className="button">
                     <button onClick={() => {

@@ -1,7 +1,8 @@
 import '../App.css'
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function PokemonCard({ name, pokeIndex, url }) {
+    const navigate = useNavigate()
 
     const thisName = `${name.slice(0, 1).toUpperCase()}${name.slice(1)}`
     const data = {
@@ -11,7 +12,7 @@ export default function PokemonCard({ name, pokeIndex, url }) {
     }
 
     return(
-        <Link to={`/pokemon/${pokeIndex}`} className="pokemon-link" state={data}>
+        <Link to={`/pokemon/${pokeIndex}`} className="pokemon-link" state={data} >
             <article className='pokemonCard'>
                 <div className="indexContainer">
                     <h1 className="index" style={{ color: '#5f5f5f'}}>

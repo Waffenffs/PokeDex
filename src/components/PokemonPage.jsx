@@ -33,15 +33,12 @@ export default function PokemonPage(data){
                 setPokemonData({
                     types: pokemonTypes,
                 })
+
+                setTimeout(() => {
+                    setIsDisplayed(true)
+                }, 1000)
             })
     }, []) || 'none')
-
-    // load contents first
-    useEffect(() => {
-        setTimeout(() => {
-            setIsDisplayed(true)
-        }, 600)
-    }, [])
 
     let tags;
 

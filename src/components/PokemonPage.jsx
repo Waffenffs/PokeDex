@@ -8,9 +8,6 @@ export default function PokemonPage(data){
     const location = useLocation(data)
     const zhisData = location.state
     const thisData = zhisData.data
-
-    console.log()
-
     const [pokemonDescription, setPokemonDescription] = useState('')
     const [pokemonData, setPokemonData] = useState(useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${thisData.pokeIndex}`)
@@ -23,7 +20,6 @@ export default function PokemonPage(data){
             .then((result) => result.json())
             .then((data) => {
                 const pokemonTypes = data.types.map((res) => res.type)
-
 
                 setPokemonData({
                     types: pokemonTypes,

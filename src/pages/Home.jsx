@@ -3,7 +3,6 @@ import PokemonCard from "../components/PokemonCard"
 import '../App.css'
 
 export default function Home({ currentPage, setCurrentPage}) {
-    /* TO DO: ADD NEW POKEMON WHEN INPUT IS SUBMITTED */
 
     const [pokemonSearch, setPokemonSearch] = useState('')
     const [submission, setSubmission] = useState(false)
@@ -57,8 +56,6 @@ export default function Home({ currentPage, setCurrentPage}) {
             })
 
     }
-
-    console.log(pokemons)
     
     return(
         <div className="homeContainer">

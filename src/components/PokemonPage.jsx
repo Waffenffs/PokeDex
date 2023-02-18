@@ -3,24 +3,20 @@ import '../App.css'
 import { useState, useEffect } from "react"
 
 export default function PokemonPage(data){
-
+    
     const [isDisplayed, setIsDisplayed] = useState(false)
     const location = useLocation(data)
-    const thisData = location.state
+    const zhisData = location.state
+    const thisData = zhisData.data
+
+    console.log()
+
     const [pokemonDescription, setPokemonDescription] = useState('')
     const [pokemonData, setPokemonData] = useState(useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${thisData.pokeIndex}`)
             .then((result) => result.json())
             .then((data) => {
                 setPokemonDescription(data.flavor_text_entries[0].flavor_text)
-                
-                /* 
-                    TO BE CONTINUED
-
-                fetch(data.evolution_chain.url)
-                    .then((res) => res.json())
-                    .then((evolData) => console.log(evolData)) 
-                */
             })
 
         fetch(thisData.url)

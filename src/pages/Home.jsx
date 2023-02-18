@@ -2,15 +2,18 @@ import { useState, useEffect } from "react"
 import PokemonCard from "../components/PokemonCard"
 import '../App.css'
 
-export default function Home() {
+export default function Home({ currentPage, setCurrentPage}) {
+    /* TO DO: ADD NEW POKEMON WHEN INPUT IS SUBMITTED */
 
     const [pokemonSearch, setPokemonSearch] = useState('')
-    const [currentPage, setCurrentPage] = useState(0)
+    const [submission, setSubmission] = useState(false)
     const [pokemons, setPokemons] = useState(useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${currentPage}`)
             .then(response => response.json())
             .then((data) => {
-                setPokemons(data)
+                setPokemons(data.results)
+
+                console.log(data.results)
             })
             .catch((err) => {
                 console.log('error', err)
@@ -22,7 +25,7 @@ export default function Home() {
 
     // in the case pokemons state has not initialized yet
     try {
-        pokemonCards = pokemons.results.map((pokemon) => {
+        pokemonCards = pokemons.map((pokemon) => {
             return <PokemonCard 
                     name={pokemon.name}
                     pokeIndex={pokemon.url.split('/')[pokemon.url.split('/').length - 2]}
@@ -33,11 +36,30 @@ export default function Home() {
         console.log(err)
     }
 
-    // handle submission of form/input
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonSearch}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const pokemonObject = {
+                    name: data.name,
+                    url: data.species.url
+                }
+
+                const newPokemonState = pokemons.map((pokemon, index) => {
+                    if(index === 0){
+                        return pokemonObject
+                    } return pokemon
+                })
+
+                setPokemons(newPokemonState)
+            })
+
     }
 
+    console.log(pokemons)
+    
     return(
         <div className="homeContainer">
             <div className="inputContainer">

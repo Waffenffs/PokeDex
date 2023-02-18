@@ -5,17 +5,6 @@ import PokemonPage from './components/PokemonPage'
 import './App.css'
 
 export default function App(){
-  /* 
-    #####################
-    #      POKEDEX      #
-    #####################
-  
-    Requirements:
-    1. Pagination (most probably)
-    2. React Routers
-    3. React Hooks (useState, useEffect)
-    4. Animations (use Framer Motion)
-  */
 
   const WebsiteNav = () => (
     <nav>

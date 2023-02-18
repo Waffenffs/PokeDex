@@ -3,7 +3,6 @@ import '../App.css'
 import { useState, useEffect } from "react"
 
 export default function PokemonPage(data){
-    /* TO DOS : GET EVOLUTION CHAIN AND DISPLAY IT */
 
     const [isDisplayed, setIsDisplayed] = useState(false)
     const location = useLocation(data)
